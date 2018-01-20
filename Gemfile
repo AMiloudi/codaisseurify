@@ -1,10 +1,17 @@
 source 'https://rubygems.org'
 
+ruby '2.4.1'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
+group :production do
+gem 'rails_12factor'
+end
+#cloudinary our storage place for the images
+gem 'cloudinary', '1.2.3'
 #uploade of files/images
 gem 'carrierwave', '0.11.2'
 # Use Devise for authentication
@@ -55,6 +62,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
