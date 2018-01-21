@@ -1,5 +1,5 @@
 class ArtistsController < ApplicationController
-  before_action :display_artist, only: [:show, :edit, :update]
+  before_action :display_artist, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except: [:show]
 
   def index
@@ -16,7 +16,7 @@ class ArtistsController < ApplicationController
     @artist = current_user.artists.build(artist_params)
 
     if @artist.save
-      redirect_to @artist, notice: "Your artist has been succesfully created"
+    redirect_to @artist, notice: "Your artist has been succesfully created"
     else
       render :new
     end
@@ -26,7 +26,7 @@ class ArtistsController < ApplicationController
 
   def update
     if @artist.update(artist_params)
-      redirect to @atist, notice: "Your artist has been succesfully updated"
+      redirect_to @artist, notice: "Your artist has been succesfully updated"
     else
       render :edit
     end

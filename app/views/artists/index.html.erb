@@ -1,9 +1,4 @@
 <div class="row">
-  <div class="col-md-3">
-    <ul class="sidebar-list">
-      <li class="sidebar-item"><%= link_to "Your Artists", artists_path, class: "sidebar-link active" %></li>
-    </ul>
-  </div>
   <div class="col-md-9">
     <div class="panel panel-primary">
       <div class="panel-heading">
@@ -18,6 +13,7 @@
           </div>
           <div class="col-md-3 right">
             <%= link_to "Update", edit_artist_path(a), class: "btn btn-default" %>
+            <%= link_to "Delete", artist_path(a), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" }%>
           </div>
         </div>
         <% end %>
