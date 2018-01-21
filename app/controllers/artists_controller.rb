@@ -1,17 +1,19 @@
 class ArtistsController < ApplicationController
+  before_action :display_artist, only: [:show, :edit, :update]
+  before_action :authenticate_user!, except: [:show]
 
   def index
-    @artist = current_user.artist.all
+    @artist = current_user.artists.all
   end
 
   def show;end
 
   def new
-    @artist = current_user.artist.create
+    @artist = current_user.artists.create
   end
 
   def create
-    @artist = current_user.artist.build(artist_params)
+    @artist = current_user.artists.build(artist_params)
 
     if @artist.save
       redirect_to @artist, notice: "Your artist has been succesfully created"
