@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :artists do
-    name    { Faker::Lorem.characters(70) }
-    genre   { Faker::Lorem.characters(70) }
+  factory :artist do
+    name    { Faker::Lorem.words(1) }
+    genre   { Faker::Lorem.words(1) }
   end
 end
