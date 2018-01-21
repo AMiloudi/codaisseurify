@@ -4,4 +4,5 @@ class Artist < ApplicationRecord
 
   validates :name, presence:true, uniqueness:true
   validates :genre, presence:true
+  mount_uploader :image, ImageUploader
 end

@@ -1,6 +1,6 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name.capitalize %></div>
-
+  <%= image_tag(@artist.image.thumbnail) %>
   <div class="panel-body">
     <p>Genre: <%= @artist.genre.capitalize %></p>
   </div>
