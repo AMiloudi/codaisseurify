@@ -1,0 +1,16 @@
+<div class="panel panel-primary">
+  <div class="panel-heading"><%= @artist.name %></div>
+
+  <div class="panel-body">
+    <p>Genre: <%= @artist.genre %></p>
+  </div>
+
+  <div class="panel-body">
+    <ul>
+      <li>Songs: <%= @artist.songs.all %></li>
+    </ul>
+  </div>
+
+</div>
+
+<%= link_to "Back", artists_path, class: "btn btn-default" %>
