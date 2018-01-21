@@ -1,6 +1,6 @@
 FactoryBot.define do
-  factory :songs do
+  factory :song do
     title         { Faker::Lorem.characters(50) }
-    released_year rand(year)
+    released_year 2017
   end
 end
