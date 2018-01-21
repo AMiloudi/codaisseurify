@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :artists do
-    resources :song
+    resources :songs
   end
 end

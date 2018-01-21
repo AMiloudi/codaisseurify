@@ -3,20 +3,25 @@ class SongsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
   def index
-    @song = current_user.artist.songs.all
+    @artist = Artist.find(params[:artist_id])
+    redirect_to controller: 'artists', action: 'show', id: @artist.id
   end
 
   def show;end
 
   def new
-    @song = current_user.artist.songs.create
+    @artist = Artist.find(params[:artist_id])
+
+    @song = @artist.songs.create
   end
 
   def create
-    @song = current_user.artist.songs.build(song_params)
+    @artist = Artist.find(params[:artist_id])
+
+    @song = @artist.songs.build(song_params)
 
     if @song.save
-      redirect_to @song, notice: "Your song has been succesfully created"
+      redirect_to controller: 'artists', action: 'show', id: @artist.id, notice: "Your song has been succesfully created"
     else
       render :new
     end
@@ -25,16 +30,21 @@ class SongsController < ApplicationController
   def edit;end
 
   def update
+    @artist = Artist.find(params[:artist_id])
     if @song.update(song_params)
-      redirect to @song, notice: "Your song has been succesfully updated"
+      redirect_to controller: 'artists', action: 'show', id: @artist.id, notice: "Your song has been succesfully updated"
     else
       render :edit
     end
   end
 
   def destroy
+    @artist = Artist.find(params[:artist_id])
+
+    @song = Song.find(params[:id])
+
     @song.destroy
-    redirect_to @song, notice:"You have succesfully deteled the song"
+    redirect_to controller: 'artists', action: 'show', id: @artist.id,  notice:"You have succesfully deteled the song"
   end
 
   private
@@ -44,6 +54,6 @@ class SongsController < ApplicationController
   end
 
   def song_params
-    params.require(:song).permit(:title, :released_year)
+    params.require(:song).permit(:title, :released_year, :artist_id)
   end
 end
