@@ -14,7 +14,7 @@ s = Song.create!(title: "Somebody that I used to know", released_year: 2011, art
 m = Song.create!(title: "My oh my", released_year: 2006, artist: wreckers)
 
 
- Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516555908/rihanna_tjgxrf.jpg", artist: rihanna)
- Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/luisfonsi_xdk0ih.jpg", artist: luis_fonsi)
- Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556051/gotye_jbzrhg.jpg", artist: gotye)
- Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/thewreckers_ss9ykl.jpg", artist: wreckers)
+photo1= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516555908/rihanna_tjgxrf.jpg", artist: rihanna)
+photo2= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/luisfonsi_xdk0ih.jpg", artist: luis_fonsi)
+photo3= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556051/gotye_jbzrhg.jpg", artist: gotye)
+photo4= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/thewreckers_ss9ykl.jpg", artist: wreckers)
