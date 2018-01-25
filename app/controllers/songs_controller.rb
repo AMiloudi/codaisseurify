@@ -1,6 +1,5 @@
 class SongsController < ApplicationController
   before_action :display_song, only: [:show, :edit, :update]
-  before_action :authenticate_user!, except: [:show]
 
   def index
     @artist = Artist.find(params[:artist_id])
