@@ -1,12 +1,14 @@
 class ArtistsController < ApplicationController
   before_action :display_artist, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @artist = Artist.all
   end
 
-  def show;end
+  def show
+    @song = @artist.songs.create
+    @photos = @artist.photos
+  end
 
   def new
     @artist = Artist.new
@@ -16,16 +18,26 @@ class ArtistsController < ApplicationController
     @artist = Artist.new(artist_params)
 
     if @artist.save
+      image_params.each do |image|
+        @artist.photos.create(image: image)
+      end
+
       redirect_to controller: 'artists', action: 'index', notice: "Your artist has been succesfully created"
     else
       render :new
     end
   end
 
-  def edit;end
+  def edit
+    @photos = @artist.photos
+  end
 
   def update
-    if @artist.update_attributes(artist_params)
+    if @artist.update(artist_params)
+      image_params.each do |image|
+        @artist.photos.create(image: image)
+      end
+
       redirect_to @artist, notice: "Your artist has been succesfully updated"
     else
       render :edit
@@ -48,4 +60,9 @@ class ArtistsController < ApplicationController
   def artist_params
     params.require(:artist).permit(:name, :genre)
   end
+
+  def image_params
+    params[:images].present? ? params.require(:images) : []
+  end
+
 end

@@ -1,6 +1,10 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name.capitalize %></div>
-  <%= image_tag(@artist.image.thumbnail) %>
+
+  <%= @artist.photos.each do |photo| %>
+  <%= image_tag photo.image.thumbnail %>
+  <% end %>
+
   <div class="panel-body">
     <p>Genre: <%= @artist.genre.capitalize %></p>
   </div>
