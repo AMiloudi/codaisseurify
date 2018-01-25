@@ -1,18 +1,20 @@
+Photo.destroy_all
 Song.destroy_all
 Artist.destroy_all
-User.destroy_all
 
 
-henk = User.create!(email: "henk@live.nl", password: "henkie")
-piet = User.create!(email: "piet@live.nl", password: "pietje")
-jan  = User.create!(email: "jan@live.nl", password:"jantje")
+rihanna     = Artist.create!(name: "rihanna", genre: "pop")
+luis_fonsi  = Artist.create!(name: "luis_fonsi", genre: "reggaeton")
+gotye       = Artist.create!(name: "gotye", genre: "pop")
+wreckers    = Artist.create!(name: "wreckers", genre: "country")
 
-rihanna     = Artist.create!(name: "rihanna", genre: "pop", remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516555908/rihanna_tjgxrf.jpg" ,user: henk)
-luis_fonsi  = Artist.create!(name: "luis_fonsi", genre: "reggaeton", remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/luisfonsi_xdk0ih.jpg", user: piet)
-gotye       = Artist.create!(name: "gotye", genre: "pop", remote_image_url: "http://res.cloudinary.com/amiloudi/image/upload/v1516556051/gotye_jbzrhg.jpg", user: jan)
-wreckers    = Artist.create!(name: "wreckers", genre: "country", remote_image_url: "http://res.cloudinary.com/amiloudi/image/upload/v1516556052/thewreckers_ss9ykl.jpg", user: henk)
+w = Song.create!(title: "Work", released_year: 2016, artist: rihanna)
+d = Song.create!(title: "Despacito", released_year: 2017, artist: luis_fonsi)
+s = Song.create!(title: "Somebody that I used to know", released_year: 2011, artist: gotye)
+m = Song.create!(title: "My oh my", released_year: 2006, artist: wreckers)
 
-Song.create!(title: "Work", released_year: 2016, artist: rihanna)
-Song.create!(title: "Despacito", released_year: 2017, artist: luis_fonsi)
-Song.create!(title: "Somebody that I used to know", released_year: 2011, artist: gotye)
-Song.create!(title: "My oh my", released_year: 2006, artist: wreckers)
+
+photo1= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516555908/rihanna_tjgxrf.jpg", artist: rihanna)
+photo2= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/luisfonsi_xdk0ih.jpg", artist: luis_fonsi)
+photo3= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556051/gotye_jbzrhg.jpg", artist: gotye)
+photo4= Photo.create!(remote_image_url:"http://res.cloudinary.com/amiloudi/image/upload/v1516556052/thewreckers_ss9ykl.jpg", artist: wreckers)

@@ -14,12 +14,12 @@
 <div class="form-group">
   <span class="btn btn-default">
     Upload Photos
-    <%= file_field_tag :image %>
+    <%= file_field_tag "images[]", type: :file, multiple: true %>
   </span>
 </div>
 
 <div id="photos">
-    <%= image_tag(@artist.image.thumbnail) %>
+    <%= render 'artists/list' %>
 </div>
 
 <label>Add this Artist?</label>

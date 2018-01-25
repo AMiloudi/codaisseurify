@@ -1,6 +1,10 @@
 <div class="panel panel-primary">
   <div class="panel-heading"><%= @artist.name.capitalize %></div>
-  <%= image_tag(@artist.image.thumbnail) %>
+
+  <% @artist.photos.each do |photo| %>
+  <%= image_tag photo.image.thumbnail %>
+  <% end %>
+
   <div class="panel-body">
     <p>Genre: <%= @artist.genre.capitalize %></p>
   </div>
@@ -14,10 +18,6 @@
       <%= link_to "Delete", artist_song_path(@artist, song), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" }%>
       <% end %>
     </ul>
-
-
-    <!-- <%= link_to "Add new Song", new_artist_song_path(@artist), class: "btn btn-primary"%> -->
-
   </div>
 
   <div class="panel panel-default">
