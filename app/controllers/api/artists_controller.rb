@@ -1,5 +1,5 @@
-class Api::ArtistsController < ApplicationController
-skip_before_action :verify_authenticity_token
+class Api::ArtistsController < Api::BaseController 
+
 
   def index
     render status: 200, json: {
@@ -11,7 +11,7 @@ skip_before_action :verify_authenticity_token
   def show
     artist = Artist.find(params[:id])
 
-    render status: 200, json: artist.as_json(include: :songs) 
+    render status: 200, json: artist.as_json(include: :songs)
   end
 
 
