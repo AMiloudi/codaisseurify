@@ -10,6 +10,8 @@ end
 group :production do
 gem 'rails_12factor'
 end
+
+gem 'active_model_serializers', '~> 0.10.0'
 #cloudinary our storage place for the images
 gem 'cloudinary', '1.2.3'
 #uploade of files/images
