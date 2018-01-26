@@ -1,5 +1,4 @@
-class Api::ArtistsController < Api::BaseController 
-
+class Api::ArtistsController < Api::BaseController
 
   def index
     render status: 200, json: {
