@@ -1,26 +1,25 @@
-<div class="row">
-  <div class="col-md-9">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-      The wall of Fame for Artists!
-      </div>
-      <div class="panel-body">
+<section class="jumbotron text-center">
+  <div class="container">
+    <h1 class="jumbotron-heading">Have a look at our Greatest artists!</h1>
+    <p>
+      <%= link_to "Add new Artist", new_artist_path, class: "btn btn-lg btn-primary" %>
+    </p>
+  </div>
+</section>
 
-        <% @artist.each do |a| %>
-        <div class="row">
-          <div class="col-md-7">
-            <h4><%= link_to a.name.capitalize, a %></h4>
-          </div>
-          <div class="col-md-3 right">
-            <%= link_to "Update", edit_artist_path(a), class: "btn btn-default" %>
-            <%= link_to "Delete", artist_path(a), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" }%>
-          </div>
-        </div>
-        <% end %>
-
+<div class="album text-muted">
+  <div class="container">
+    <div class="row">
+      <% @artist.each do |a| %>
+      <div class="card">
+        <%= image_tag a.photos.first.image.thumbnail, class: 'artist-image' %>
+        <p class="card-text">
+          <h4><%= link_to a.name.capitalize, a %></h4>
+          <%= link_to "Update", edit_artist_path(a), class: "btn btn-default" %>
+          <%= link_to "Delete", artist_path(a), method: :delete, class: "btn btn-default", data: {confirm: "Are you sure?"} %>
+        </p>
       </div>
+      <% end %>
     </div>
-    
-    <%= link_to "Add new artist", new_artist_path, class: "btn btn-primary" %>
   </div>
 </div>

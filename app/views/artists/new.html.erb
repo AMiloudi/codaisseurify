@@ -1,9 +1,14 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-    Here you can add any Artist you want!
-  </div>
+<div class="container create-artist">
+ <div class="row">
+   <div class="panel panel-default">
+     <div class="panel-heading">
+       Here you can add any Artist you want!
+     </div>
 
-  <div class="panel-body">
-    <%= render 'form' %>
-  </div>
+     <div class="panel-body">
+       <%= render "form" %>
+     </div>
+   </div>
+   <%= link_to "Back", artists_path, class: "btn btn-default" %>
+ </div>
 </div>

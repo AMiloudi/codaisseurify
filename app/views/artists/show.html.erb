@@ -1,23 +1,39 @@
-<div class="panel panel-primary">
-  <div class="panel-heading"><%= @artist.name.capitalize %></div>
+<div class="container show-artist">
+  <div class="row">
 
-  <% @artist.photos.each do |photo| %>
-  <%= image_tag photo.image.thumbnail %>
-  <% end %>
+    <h1><%= @artist.name.capitalize %></h1>
 
-  <div class="panel-body">
-    <p>Genre: <%= @artist.genre.capitalize %></p>
+    <%= link_to "Back", artists_path, class: "btn btn-default pull-right" %>
+
+    <% @artist.photos.each do |photo| %>
+    <div class="card">
+      <%= image_tag photo.image.thumbnail, class: "artist-image" %>
+    </div>
+    <% end %>
   </div>
 
-  <div class="panel-body">
-    <ul>
-      <% @artist.songs.all.each do |song| %>
-      <li><%= song.title %></li>
+  <div class="row">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col" width="60%">Songname</th>
+          <th scope="col" width="20%">Release Year</th>
+          <th scope="col" width="20%">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <%= link_to "Update", edit_artist_song_path(@artist, song), class: "btn btn-default" %>
-      <%= link_to "Delete", artist_song_path(@artist, song), method: :delete, class: "btn btn-default", data: { confirm: "Are you sure?" }%>
-      <% end %>
-    </ul>
+        <% @artist.songs.all.each do |song| %>
+        <td><%= song.title %></td>
+        <td><%= song.released_year %></td>
+        <td>
+          <%= link_to "Update", edit_artist_song_path(@artist, song), class: "btn btn-default" %>
+          <%= link_to "Delete", artist_song_path(@artist, song), method: :delete, class: "btn btn-default", data: {confirm: "Are you sure?"} %>
+        </td>
+        <% end %>
+
+      </tbody>
+    </table>
   </div>
 
   <div class="panel panel-default">
@@ -26,7 +42,7 @@
     </div>
 
     <div class="panel-body">
-      <%= form_for @song,  :url => url_for(:controller => 'artists', :action => 'create') do |f| %>
+      <%= form_for @song, :url => url_for(:controller => 'artists', :action => "create") do |f| %>
       <div class="form-group">
         <label>Title</label>
         <%= f.text_field :title, placeholder: "Title", class: "form-control" %>
@@ -47,5 +63,3 @@
   </div>
 
 </div>
-
-<%= link_to "Back", artists_path, class: "btn btn-default" %>
