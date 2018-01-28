@@ -35,6 +35,6 @@ def set_artist
   end
 
   def song_params
-    params.require(:song).permit(:title, :released_year)
+    params.require(:song).permit(:title, :released_year, :artist_id)
   end
 end

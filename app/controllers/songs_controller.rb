@@ -22,7 +22,7 @@ class SongsController < ApplicationController
     if @song.save
       redirect_to controller: 'artists', action: 'show', id: @artist.id, notice: "Your song has been succesfully created"
     else
-      render :new
+      redirect_to controller: 'artists', action: 'show', id: @artist.id, notice: "Please fill in all the fields"
     end
   end
 
