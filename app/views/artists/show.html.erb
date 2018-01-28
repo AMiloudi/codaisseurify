@@ -13,7 +13,7 @@
   </div>
 
   <div class="row">
-    <table class="table">
+    <table class="table" id="songTable">
       <thead class="thead-dark">
         <tr>
           <th scope="col" width="60%">Songname</th>
@@ -56,6 +56,8 @@
         <label>Year Released</label>
         <%= f.number_field :released_year, placeholder: "Year released", class: "form-control" %>
       </div>
+
+      <%= f.hidden_field :artist_id, value: @artist.id, id: "artistField" %>
 
       <label>Do you want to add this Song?</label>
 
