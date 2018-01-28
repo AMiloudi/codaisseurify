@@ -27,6 +27,7 @@ function ajaxCreateSong(songTitle, songYear, artistId){
   })
   .success(function(data) {
     createSong(songTitle, songYear, data.artist.id, data.song.id);
+    $('.notice').html(data.message);
   });
 }
 
@@ -72,11 +73,12 @@ function ajaxDeleteRequest(artist, song){
   })
   .success(function(data) {
     $('#song' + song).remove();
+    $('.notice').html(data.message);
   });
 }
 
 $(document).ready(function() {
   $('.song-delete').on('click', deleteSong);
   $('.delete-all').on('click', deleteAllSong);
-  $("form").bind('submit', submitSong);
+  $('#new_song').bind('submit', submitSong);
 });

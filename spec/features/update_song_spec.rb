@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe "Making sure we can update a song" do
-  before { login_as user}
-  let!(:user)   {create :user, email: "current@user.com" }
-  let!(:artist) { create :artist, user: user }
+  let!(:artist) { create :artist }
   let!(:song)   { create :song, artist: artist }
 
   it "update the song" do

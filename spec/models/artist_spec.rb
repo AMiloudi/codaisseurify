@@ -7,8 +7,10 @@ RSpec.describe Artist, type: :model do
       artist.valid?
       expect(artist.errors).to have_key(:name)
     end
-    describe "validations" do
-      it { is_expected.to validate_presence_of(:genre) }
+    it "is invalid without a genre" do
+      artist= Artist.new(genre: nil)
+      artist.valid?
+      expect(artist.errors).to have_key(:genre)
     end
   end
 end
