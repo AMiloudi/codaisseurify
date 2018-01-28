@@ -12,8 +12,8 @@
     <div class="row">
       <% @artist.each do |a| %>
       <div class="card">
-        <% if a.photos.exists? %>
-        <% image_tag a.photos.first.image.thumbnail, class: 'artist-image' %>
+        <% if a.photos.present? %>
+        <%= image_tag a.photos.first.image.thumbnail, class: 'artist-image' %>
         <% end %>
         <p class="card-text">
           <h4><%= link_to a.name.capitalize, a %></h4>
