@@ -11,10 +11,12 @@ body {
 }
 
 .jumbotron {
+  background-image: url("http://res.cloudinary.com/amiloudi/image/upload/v1517163456/music_npcb9q.jpg");
   padding-top: 6rem;
   padding-bottom: 6rem;
   margin-bottom: 0;
   background-color: #fff;
+  background-size: 100% 608px;
 }
 
 .jumbotron p:last-child {
