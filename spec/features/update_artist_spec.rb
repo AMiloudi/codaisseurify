@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe "Update an Artist" do
-  before { login_as user}
-  let(:user)         {create :user, email: "current@user.com" }
-  let!(:artist) {create :artist, name: "Rihanna", user: user }
+  let!(:artist) {create :artist, name: "Rihanna" }
 
   it "Update the artist" do
     visit artists_url

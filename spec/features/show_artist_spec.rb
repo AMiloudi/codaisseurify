@@ -1,9 +1,7 @@
 require 'rails_helper'
 
 describe "Viewing an individual artist" do
-  before { login_as user}
-  let!(:user)   {create :user, email: "current@user.com" }
-  let!(:artist) { create :artist, user: user }
+  let!(:artist) { create :artist}
 
   it "shows the artists details" do
     visit artist_path(artist)

@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 group :production do
-gem 'rails_12factor'
+  gem 'rails_12factor'
 end
 
 gem 'active_model_serializers', '~> 0.10.0'
@@ -47,14 +47,17 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 group :test do
-  gem 'capybara', '~> 2.9', '>= 2.9.1'
   gem 'shoulda-matchers', '~> 3.1'
+  gem 'database_cleaner'
 end
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'rspec-rails', '~> 3.5', '>= 3.5.2'
+  gem 'rspec-rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem "chromedriver-helper"
   gem 'factory_bot_rails'
   gem 'faker'
 end

@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :photo do
-    artist nil
-    image "MyString"
+    artist  { Faker::Lorem.words(1) }
+    image_url "MyString"
   end
 end
